@@ -2,7 +2,10 @@
  * Create a list that holds all of your cards
  */
 
-
+ // Creating array from nodelist from https://davidwalsh.name/nodelist-array
+ 
+var array = Array.prototype.slice.call(document.querySelectorAll(".card"));
+    console.log(array);
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
