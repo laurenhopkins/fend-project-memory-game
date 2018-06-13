@@ -1,11 +1,11 @@
+/*Used the following sources to create project:
+Memory Game Webinar with Mike Wales - https://www.youtube.com/watch?v=_rUH-sEs68Y 
+*/
+
 /*
  * Create a list that holds all of your cards
  */
 
- // Creating array from nodelist from https://davidwalsh.name/nodelist-array
- 
-var array = Array.prototype.slice.call(document.querySelectorAll(".card"));
-    console.log(array);
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -39,3 +39,12 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ const cards = document.querySelectorAll('.card');
+
+ cards.forEach(function(card) {
+    card.addEventListener('click', function(evt) {
+        card.classList.add("open", "show");
+        console.log(evt);
+    });
+ });
