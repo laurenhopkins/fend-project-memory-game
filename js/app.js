@@ -1,5 +1,6 @@
 /*Used the following sources to create project:
 Memory Game Webinar with Mike Wales - https://www.youtube.com/watch?v=_rUH-sEs68Y 
+https://matthewcranford.com/memory-game-walkthrough-part-2-toggling-card
 */
 
 /*
@@ -41,10 +42,22 @@ function shuffle(array) {
  */
 
  const cards = document.querySelectorAll('.card');
+ let showCards =[];
 
  cards.forEach(function(card) {
     card.addEventListener('click', function(evt) {
+        showCards.push(card);
         card.classList.add("open", "show");
-        console.log(evt);
+        console.log('Open Cards:', showCards.length);
+
+        if(showCards.length == 2) {
+            setTimeout(function() {
+                showCards.forEach(function(card) {
+                    card.classList.remove("open", "show");
+                });
+
+                showCards = [];
+            }, 1000);
+        }
     });
  });
