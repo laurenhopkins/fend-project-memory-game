@@ -43,14 +43,35 @@ function shuffle(array) {
 
  const cards = document.querySelectorAll('.card');
  let showCards =[];
+ 
+ //Show cards when clicked
 
  cards.forEach(function(card) {
     card.addEventListener('click', function(evt) {
+       
+        if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'));
+       
+        if (showCards.length <= 1) {
         showCards.push(card);
         card.classList.add("open", "show");
-        console.log('Open Cards:', showCards.length);
+        }
 
-        if(showCards.length == 2) {
+        //Check if cards match
+
+    // const cardOne = showCards[0].firstElementChild.className;
+     //console.log(cardOne);
+    
+    
+        /* if ( == showCards[1]) {
+           showCards.forEach(function(card) {
+               card.classList.add("match");
+               matchedCards.push(card);
+           });
+       } else */
+       
+       //Hide cards if there is no match
+
+        if (showCards.length == 2) {
             setTimeout(function() {
                 showCards.forEach(function(card) {
                     card.classList.remove("open", "show");
