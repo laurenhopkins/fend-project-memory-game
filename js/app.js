@@ -1,10 +1,24 @@
 /*Used the following sources to create project:
 Memory Game Webinar with Mike Wales - https://www.youtube.com/watch?v=_rUH-sEs68Y 
-https://matthewcranford.com/memory-game-walkthrough-part-2-toggling-card
 https://matthewcranford.com/memory-game-walkthrough-part-3-matching-pairs/
+https://matthewcranford.com/memory-game-walkthrough-part-4-shuffling-decks/
 */
 
+//Shuffles deck 
+
+const deck = document.querySelector('.deck');
+
+function shuffleCards() {
+    const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
+    const shuffledDeck = shuffle(cardsToShuffle);
+    for (card of shuffledDeck) {
+        deck.appendChild(card);
+    }
+}
+shuffleCards();
+
 // Shuffle function from http://stackoverflow.com/a/2450976
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -27,7 +41,7 @@ function shuffle(array) {
  const cards = document.querySelectorAll('.card');
  let showCards =[];
  
- //Show cards when clicked
+ // Show cards when clicked
 
  cards.forEach(function(card) {
     card.addEventListener('click', function(evt) {
@@ -37,7 +51,7 @@ function shuffle(array) {
             card.classList.add("open", "show");
             }
 
-        //Check if cards match
+        // Check if cards match
 
         function checkForMatch() {
             if (showCards[0].firstElementChild.className === showCards[1].firstElementChild.className) {
