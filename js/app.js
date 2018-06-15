@@ -1,6 +1,7 @@
 /*Used the following sources to create project:
 Memory Game Webinar with Mike Wales - https://www.youtube.com/watch?v=_rUH-sEs68Y 
 https://matthewcranford.com/memory-game-walkthrough-part-2-toggling-card
+https://matthewcranford.com/memory-game-walkthrough-part-3-matching-pairs/
 */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -31,12 +32,10 @@ function shuffle(array) {
  cards.forEach(function(card) {
     card.addEventListener('click', function(evt) {
        
-        if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'));
-       
-        if (showCards.length <= 1) {
-        showCards.push(card);
-        card.classList.add("open", "show");
-        }
+        if (showCards.length <= 1 && !card.classList.contains('show')) {
+            showCards.push(card);
+            card.classList.add("open", "show");
+            }
 
         //Check if cards match
 
@@ -59,7 +58,7 @@ function shuffle(array) {
                 });
 
                 showCards = [];
-            }, 1000);
+            }, 500);
         }
     });
  });
