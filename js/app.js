@@ -87,6 +87,20 @@ function shuffle(array) {
     numberOfMoves++;
         const moves = document.querySelector('.moves');
         moves.innerHTML = numberOfMoves;
+    starScore();
 }
 
- 
+// Adds star rating
+
+function starScore() {
+    const starOne = document.querySelector('.star-one');
+    const starTwo = document.querySelector('.star-two');
+    const starThree = document.querySelector('.star-three');
+    if (numberOfMoves >= 15) {
+        starOne.style.display = 'none';
+    }
+    if (numberOfMoves >= 24) {
+        starTwo.style.display = 'none';
+    }
+}
+
