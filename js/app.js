@@ -1,7 +1,9 @@
 /*Used the following sources to create project:
 Memory Game Webinar with Mike Wales - https://www.youtube.com/watch?v=_rUH-sEs68Y 
+Memory Game Webinar with Ryan Waite - https://www.youtube.com/watch?v=oECVwum-7Zc
 https://matthewcranford.com/memory-game-walkthrough-part-3-matching-pairs/
 https://matthewcranford.com/memory-game-walkthrough-part-4-shuffling-decks/
+https://matthewcranford.com/memory-game-walkthrough-part-5-moves-stars/
 */
 
 //Shuffles deck 
@@ -66,13 +68,25 @@ function shuffle(array) {
        //Hide cards if there is no match
 
         if (showCards.length == 2) {
+            countMove();
             setTimeout(function() {
                 showCards.forEach(function(card) {
                     card.classList.remove("open", "show");
-                });
-
+                });             
                 showCards = [];
             }, 500);
         }
     });
  });
+ 
+ // Counts moves
+
+ let numberOfMoves = 0;
+
+ function countMove() {
+    numberOfMoves++;
+        const moves = document.querySelector('.moves');
+        moves.innerHTML = numberOfMoves;
+}
+
+ 
