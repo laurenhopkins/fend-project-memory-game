@@ -112,8 +112,10 @@ let mins = 00;
 let showSecs = document.querySelector(".secs")
 let showMins =document.querySelector(".mins");
 
+//event listener not working, TODO: fix
+//deck.addEventListener("click", 
 
-deck.addEventListener("click", setInterval(setTimer, 1000));
+setInterval(setTimer, 1000);
 
  function setTimer() {
     secs++;
@@ -135,4 +137,12 @@ deck.addEventListener("click", setInterval(setTimer, 1000));
         }
     }
 }
+
+// Restart game
+
+const restart = document.querySelector(".fa-repeat");
+
+restart.addEventListener("click", function(){
+    location.reload(true);
+});
 
