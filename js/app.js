@@ -4,6 +4,7 @@ Memory Game Webinar with Ryan Waite - https://www.youtube.com/watch?v=oECVwum-7Z
 https://matthewcranford.com/memory-game-walkthrough-part-3-matching-pairs/
 https://matthewcranford.com/memory-game-walkthrough-part-4-shuffling-decks/
 https://matthewcranford.com/memory-game-walkthrough-part-5-moves-stars/
+https://www.cssscript.com/a-minimal-pure-javascript-stopwatch/
 */
 
 //Shuffles deck 
@@ -101,6 +102,37 @@ function starScore() {
     }
     if (numberOfMoves >= 24) {
         starTwo.style.display = 'none';
+    }
+}
+
+// Sets timer
+
+let secs = 00;
+let mins = 00;
+let showSecs = document.querySelector(".secs")
+let showMins =document.querySelector(".mins");
+
+
+deck.addEventListener("click", setInterval(setTimer, 1000));
+
+ function setTimer() {
+    secs++;
+    if (secs < 10) {
+        showSecs.innerHTML = "0" + secs;
+    }
+    if (secs > 9) {
+            showSecs.innerHTML = secs;
+    }
+    if (secs > 59) {
+        mins++;
+        secs = 0;
+        showSecs.innerHTML = "00";
+        if (mins < 10) {
+            showMins.innerHTML = "0" + mins;
+        }
+        if (mins > 9) {
+            showMins.innerHTML = mins;
+        }
     }
 }
 
