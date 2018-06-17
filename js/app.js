@@ -111,11 +111,14 @@ let secs = 00;
 let mins = 00;
 let showSecs = document.querySelector(".secs")
 let showMins =document.querySelector(".mins");
+let clockOff = true;
 
-//event listener not working, TODO: fix
-//deck.addEventListener("click", 
-
-setInterval(setTimer, 1000);
+deck.addEventListener("click", event => {
+    if (clockOff) {
+        setInterval(setTimer, 1000);
+        clockOff = false;
+    }
+});
 
  function setTimer() {
     secs++;
