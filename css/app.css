@@ -107,3 +107,16 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.score-text {
+    padding-right: 5px;
+}
+ 
+.timer {
+    padding-right: 10px;
+}
+
+.moves-text {
+    padding-left: 10px;
+    padding-right: 5px;
+}

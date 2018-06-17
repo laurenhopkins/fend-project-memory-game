@@ -96,7 +96,7 @@ function starScore() {
     const starOne = document.querySelector('.star-one');
     const starTwo = document.querySelector('.star-two');
     const starThree = document.querySelector('.star-three');
-    if (numberOfMoves >= 15) {
+    if (numberOfMoves >= 17) {
         starOne.style.display = 'none';
     }
     if (numberOfMoves >= 24) {
