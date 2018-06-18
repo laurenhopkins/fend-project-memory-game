@@ -4,7 +4,10 @@ Memory Game Webinar with Ryan Waite - https://www.youtube.com/watch?v=oECVwum-7Z
 https://matthewcranford.com/memory-game-walkthrough-part-3-matching-pairs/
 https://matthewcranford.com/memory-game-walkthrough-part-4-shuffling-decks/
 https://matthewcranford.com/memory-game-walkthrough-part-5-moves-stars/
+https://matthewcranford.com/memory-game-walkthrough-part-6-the-clock/
+https://matthewcranford.com/memory-game-walkthrough-part-7-making-a-modal/
 https://www.cssscript.com/a-minimal-pure-javascript-stopwatch/
+https://www.w3schools.com/howto/howto_css_modals.asp
 */
 
 //Shuffles deck 
@@ -112,10 +115,11 @@ let mins = 00;
 let showSecs = document.querySelector(".secs")
 let showMins =document.querySelector(".mins");
 let clockOff = true;
+let timer;
 
 deck.addEventListener("click", event => {
     if (clockOff) {
-        setInterval(setTimer, 1000);
+        timer = setInterval(setTimer, 1000);
         clockOff = false;
     }
 });
@@ -141,6 +145,10 @@ deck.addEventListener("click", event => {
     }
 }
 
+function stopClock() {
+    clearInterval(timer);
+}
+
 // Restart game
 
 const restart = document.querySelector(".fa-repeat");
@@ -149,3 +157,51 @@ restart.addEventListener("click", function(){
     location.reload(true);
 });
 
+// End game
+
+const numberMatches = Array.from(document.querySelectorAll(".card.match"));
+
+function endGame() {
+        stopClock();
+        toggleModal();
+        modalStats();
+    }
+
+// Modal
+
+const modal = document.querySelector('.modal');
+
+function toggleModal() {
+    modal.classList.toggle("hide");
+}
+
+// Modal data
+
+function modalStats() {
+    const timeStat = document.querySelector('.modal-time');
+    const clockTimeMins = document.querySelector('.mins').firstChild.nodeValue;
+    const clockTimeSecs = document.querySelector('.secs').firstChild.nodeValue;
+    const movesStat = document.querySelector('.modal-moves');
+    const displayMoves = document.querySelector('.moves').firstChild.nodeValue;
+    
+    timeStat.innerHTML = `Time = ${clockTimeMins}:${clockTimeSecs}`;
+    movesStat.innerHTML = `Moves = ${displayMoves}`;
+
+    //TODO: Add score data for stars
+}
+
+// Replay game
+
+const replay = document.querySelector('.modal-replay');
+
+replay.addEventListener("click", function(){
+    location.reload(true);
+});
+
+// Close modal
+
+const closeModal = document.querySelector(".close");
+
+closeModal.addEventListener("click", function() {
+    modal.style.display = "none";
+});
