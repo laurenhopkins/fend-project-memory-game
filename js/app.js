@@ -46,6 +46,7 @@ function shuffle(array) {
 
  const cards = document.querySelectorAll('.card');
  let showCards =[];
+ let matchedCards =[];
  
  // Show cards when clicked
 
@@ -63,11 +64,16 @@ function shuffle(array) {
             if (showCards[0].firstElementChild.className === showCards[1].firstElementChild.className) {
                 showCards.forEach(function(card) {
                     card.classList.add("match");
+                    matchedCards.push(card);
                 });
             }
         }
          
         checkForMatch();
+
+        if (matchedCards.length == 16) {
+            endGame();
+        }
 
        //Hide cards if there is no match
 
@@ -167,6 +173,8 @@ function endGame() {
         modalStats();
     }
 
+
+
 // Modal
 
 const modal = document.querySelector('.modal');
@@ -184,11 +192,25 @@ function modalStats() {
     const movesStat = document.querySelector('.modal-moves');
     const displayMoves = document.querySelector('.moves').firstChild.nodeValue;
     
+    const starsStat = document.querySelector('.modal-stars');
+    const displayStars = getStars();
+
     timeStat.innerHTML = `Time = ${clockTimeMins}:${clockTimeSecs}`;
     movesStat.innerHTML = `Moves = ${displayMoves}`;
-
-    //TODO: Add score data for stars
+    starsStat.innerHTML = `Stars = ${displayStars}`;
 }
+
+ //TODO: Add score data for stars
+ function getStars() {
+    stars = document.querySelectorAll('.stars li');
+    starCount = 0;
+    for (star of stars) {
+        if (star.style.display !== 'none') {
+            starCount++;
+        } 
+    } return starCount;
+    console.log(starCount);
+} 
 
 // Replay game
 
