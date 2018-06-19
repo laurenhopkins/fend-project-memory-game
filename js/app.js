@@ -34,7 +34,7 @@ function shuffle(array) {
  // Show cards when clicked
 
  cards.forEach(function(card) {
-    card.addEventListener('click', function(evt) {
+    card.addEventListener('click', function listener(evt) {
        
         if (showCards.length <= 1 && !card.classList.contains('show')) {
             showCards.push(card);
@@ -47,6 +47,7 @@ function shuffle(array) {
             if (showCards[0].firstElementChild.className === showCards[1].firstElementChild.className) {
                 showCards.forEach(function(card) {
                     card.classList.add("match");
+                    card.removeEventListener('click', listener);
                 }); matchedCards += 2;
             }
         }
