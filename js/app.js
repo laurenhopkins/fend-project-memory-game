@@ -29,7 +29,7 @@ function shuffle(array) {
 
  const cards = document.querySelectorAll('.card');
  let showCards =[];
- let matchedCards;
+ let matchedCards = 0;
 
  // Show cards when clicked
 
@@ -63,6 +63,9 @@ function shuffle(array) {
                 });             
                 showCards = [];
             }, 500);
+        }
+        if (matchedCards === 16) {
+            endGame();
         }
     });
  });
@@ -143,9 +146,9 @@ restart.addEventListener("click", function(){
 
 // End game
 
-if (matchedCards == 16) {
+/*if (matchedCards === 16) {
     endGame();
-}
+}*/
 
 function endGame() {
     stopClock();
