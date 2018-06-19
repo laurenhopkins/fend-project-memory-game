@@ -27,15 +27,10 @@ function shuffle(array) {
     return array;
 }
 
-/*
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
  const cards = document.querySelectorAll('.card');
  let showCards =[];
- let matchedCards =[];
- 
+ let matchedCards;
+
  // Show cards when clicked
 
  cards.forEach(function(card) {
@@ -52,16 +47,11 @@ function shuffle(array) {
             if (showCards[0].firstElementChild.className === showCards[1].firstElementChild.className) {
                 showCards.forEach(function(card) {
                     card.classList.add("match");
-                    matchedCards.push(card);
-                });
+                }); matchedCards += 2;
             }
         }
          
         checkForMatch();
-
-        if (matchedCards.length == 16) {
-            endGame();
-        }
 
        //Hide cards if there is no match
 
@@ -153,15 +143,15 @@ restart.addEventListener("click", function(){
 
 // End game
 
-const numberMatches = Array.from(document.querySelectorAll(".card.match"));
+if (matchedCards == 16) {
+    endGame();
+}
 
 function endGame() {
-        stopClock();
-        toggleModal();
-        modalStats();
-    }
-
-
+    stopClock();
+    toggleModal();
+    modalStats();
+}
 
 // Modal
 
@@ -189,14 +179,16 @@ function modalStats() {
 }
 
  //TODO: Add score data for stars
+
  function getStars() {
-    stars = document.querySelectorAll('.stars li');
-    starCount = 0;
+    const stars = document.querySelectorAll('.stars li');
+    let starCount = 0;
     for (star of stars) {
         if (star.style.display !== 'none') {
             starCount++;
         } 
-    } return starCount;
+    } 
+    return starCount;
     console.log(starCount);
 } 
 
