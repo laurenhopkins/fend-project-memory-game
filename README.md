@@ -8,20 +8,16 @@
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+This matching game has 8 pairs of cards. To win the game, match each card to it's pair. 
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+This repository is a project for the Grow with Google Udacity Front-End Web Development Nanodegree. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Dependencies
-Used the following sources to create project:
+The following sources were used to create this project:
 
 Memory Game Webinar with Mike Wales - https://www.youtube.com/watch?v=_rUH-sEs68Y 
 Memory Game Webinar with Ryan Waite - https://www.youtube.com/watch?v=oECVwum-7Zc
