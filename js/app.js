@@ -183,18 +183,17 @@ function modalStats() {
 }
 
  //TODO: Add score data for stars
+ 
+let starCount = 3;
 
- function getStars() {
-    const stars = document.querySelectorAll('.stars li');
-    let starCount = 0;
-    for (star of stars) {
-        if (star.style.display !== 'none') {
-            starCount++;
-        } 
-    } 
-    return starCount;
-    console.log(starCount);
-} 
+function getStars() {
+    if (numberOfMoves >= 17) {
+         starCount = 2;
+    }
+    if (numberOfMoves >= 24) {
+        starCount = 1;
+    } return starCount;
+}
 
 // Replay game
 
